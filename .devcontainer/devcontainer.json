@@ -19,9 +19,7 @@
     "vscode": {
       "extensions": [
         "ms-python.python",
-        "ms-toolsai.jupyter",
         "ms-python.mypy-type-checker",
-        "ms-vscode.live-server",
         "charliermarsh.ruff",
         "EditorConfig.EditorConfig"
       ]

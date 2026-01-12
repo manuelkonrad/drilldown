@@ -29,6 +29,7 @@ _version.py
 
 # Tools
 .coverage
+.coverage.*
 .cache
 .pytest_cache/
 .mypy_cache/
