@@ -1,0 +1,70 @@
+/* Custom styles for AG Grid */
+
+.ag-theme-quartz-dark.ag-theme-drilldown-dark {
+  --ag-background-color: var(--mantine-color-dark-8);
+  --ag-foreground-color: var(--mantine-color-dark-0);
+  --ag-header-background-color: var(--mantine-color-dark-6);
+  --ag-border-radius: 0px;
+  --ag-wrapper-border-radius: 0px;
+  --ag-header-height: 34px;
+  --ag-font-family: sans-serif;
+  --ag-cell-horizontal-padding: 12px;
+  --ag-font-size: 0.825rem;
+}
+
+.ag-theme-quartz.ag-theme-drilldown {
+  --ag-border-radius: 0px;
+  --ag-wrapper-border-radius: 0px;
+  --ag-header-height: 34px;
+  --ag-font-family: sans-serif;
+  --ag-cell-horizontal-padding: 12px;
+  --ag-font-size: 0.825rem;
+}
+
+/* Custom styles for NavLink component */
+
+.navlink-custom {
+  color: var(--mantine-color-dark-1);
+  background-color: var(--mantine-color-dark-6);
+}
+
+.navlink-custom[data-active="true"] {
+  background-color: var(--mantine-color-dark-6);
+  color: #ffffff;
+}
+
+.navlink-custom:hover {
+  background-color: var(--mantine-color-dark-6);
+  color: #ffffff;
+}
+
+/* Custom styles for Card component */
+
+:where([data-mantine-color-scheme="dark"]) .card-root-custom {
+  background-color: var(--mantine-color-dark-7);
+  border: 1px solid var(--mantine-color-dark-5);
+}
+
+:where([data-mantine-color-scheme="dark"]) .card-root-custom:hover {
+  background-color: var(--mantine-color-dark-6);
+  border: 1px solid var(--mantine-color-dark-4);
+}
+
+:where([data-mantine-color-scheme="light"]) .card-root-custom {
+  background-color: var(--mantine-color-gray-0);
+  border: 1px solid var(--mantine-color-gray-3);
+}
+
+:where([data-mantine-color-scheme="light"]) .card-root-custom:hover {
+  background-color: var(--mantine-color-gray-1);
+  border: 1px solid var(--mantine-color-gray-4);
+}
+
+/* Custom styles for Clipboard component */
+.custom-clipboard {
+  cursor: pointer;
+  color: var(--mantine-color-dark-0);
+}
+.custom-clipboard:hover {
+  color: #ffffff;
+}
