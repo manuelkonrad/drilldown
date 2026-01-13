@@ -233,8 +233,9 @@ def create_monitor_figure(
     fig = make_subplots(
         rows=2,
         cols=1,
-        vertical_spacing=0.15,
+        vertical_spacing=0.1,
         row_heights=[0.7, 0.3],
+        shared_xaxes=True,
     )
 
     df = df.copy()
