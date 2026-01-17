@@ -5,80 +5,16 @@
 """Tests for the monitoring drift detection functions."""
 
 import datetime
-import sys
-from pathlib import Path
 
 import numpy as np
 import pandas as pd
 import pytest
 
-# Add src to path for dynamic module loading in get_monitor_functions()
-_SRC_PATH = Path(__file__).parent.parent / "src"
-sys.path.insert(0, str(_SRC_PATH))
-
-
-# Helper to extract functions from module without triggering Dash registration
-def get_monitor_functions():
-    """Extract drift detection functions from monitor_page.py.
-
-    This helper dynamically loads monitor functions to avoid triggering
-    Dash page registration during test collection.
-
-    Returns:
-        Dictionary containing compute_ks_statistic, compute_rolling_drift,
-        and optionally create_monitor_figure.
-    """
-    # Import algorithm functions from the new module
-    from drilldown.pages.monitor.algorithms import (
-        compute_ks_statistic,
-        compute_rolling_drift,
-    )
-
-    namespace = {
-        "compute_ks_statistic": compute_ks_statistic,
-        "compute_rolling_drift": compute_rolling_drift,
-    }
-
-    # Try to import figure creation function, but don't fail if dash isn't available
-    try:
-        # Import figure creation from monitor_page.py
-        monitor_path = _SRC_PATH / "drilldown" / "pages" / "monitor_page.py"
-        module_code = monitor_path.read_text()
-
-        # Execute only up to the dash.register_page call
-        code_to_exec = module_code.split("dash.register_page")[0]
-
-        # Create a namespace with required imports
-        namespace.update(
-            {
-                "datetime": datetime,
-                "np": np,
-                "pd": pd,
-            }
-        )
-
-        # Add plotly imports
-        import plotly.express as px
-        import plotly.graph_objects as go
-        from plotly.subplots import make_subplots
-
-        namespace["px"] = px
-        namespace["go"] = go
-        namespace["make_subplots"] = make_subplots
-
-        exec(code_to_exec, namespace)
-    except (ImportError, ModuleNotFoundError):
-        # If dash or other dependencies aren't available, skip figure creation tests
-        namespace["create_monitor_figure"] = None
-
-    return namespace
-
-
-# Get the functions
-_namespace = get_monitor_functions()
-compute_ks_statistic = _namespace["compute_ks_statistic"]
-compute_rolling_drift = _namespace["compute_rolling_drift"]
-create_monitor_figure = _namespace.get("create_monitor_figure")
+from drilldown.pages.monitor.algorithms import (
+    compute_ks_statistic,
+    compute_rolling_drift,
+    create_monitor_figure,
+)
 
 
 class TestKSStatistic:
