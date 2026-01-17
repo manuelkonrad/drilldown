@@ -18,4 +18,6 @@ jobs:
       contents: read
     steps:
     - name: Perform Bandit Analysis
-      uses: PyCQA/bandit-action@v1
+      uses: PyCQA/bandit-action@v1.0.1
+      with:
+        configfile: pyproject.toml
