@@ -14,6 +14,10 @@
 
 Explore and analyze multimodal data.
 
+- Built with `dash`, `dash-mantine-components`, and `plotly`
+- Lightweight feature store based on `obstore` and `deltalake`
+- Light and dark themes
+
 ## Getting Started
 
 Installation:
